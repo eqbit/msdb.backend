@@ -22,6 +22,10 @@ module.exports = {
     'no-trailing-spaces': 'off',
     'comma-dangle': 'off',
     'no-console': 'off',
-    'array-bracket-spacing': 'off'
+    'array-bracket-spacing': 'off',
+    'import/prefer-default-export': 'off',
+    'class-methods-use-this': 'off',
+    'object-curly-newline': 'off',
+    'import/extensions': 'off'
   },
 };
