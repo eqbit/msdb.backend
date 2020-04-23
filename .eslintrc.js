@@ -17,8 +17,10 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
+    'typescript'
   ],
   rules: {
+    'typescript/no-unused-vars': 'warn',
     'no-trailing-spaces': 'off',
     'comma-dangle': 'off',
     'no-console': 'off',
@@ -28,4 +30,11 @@ module.exports = {
     'object-curly-newline': 'off',
     'import/extensions': 'off'
   },
+  settings: {
+    'import/resolver': {
+      'node': {
+        'extensions': ['.ts']
+      }
+    }
+  }
 };
