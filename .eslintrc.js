@@ -28,7 +28,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'class-methods-use-this': 'off',
     'object-curly-newline': 'off',
-    'import/extensions': 'off'
+    'import/extensions': 'off',
+    'implicit-arrow-linebreak': 'off'
   },
   settings: {
     'import/resolver': {
