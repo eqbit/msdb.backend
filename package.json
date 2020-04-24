@@ -12,10 +12,12 @@
     "express-session": "^1.17.1",
     "graphql": "^14.0.2",
     "ioredis": "^4.16.3",
+    "nodemailer": "^6.4.6",
     "pg": "^8.0.2",
     "reflect-metadata": "^0.1.12",
     "type-graphql": "^0.16.0",
-    "typeorm": "^0.2.24"
+    "typeorm": "^0.2.24",
+    "uuid": "^7.0.3"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -26,7 +28,9 @@
     "@types/graphql": "^14.0.4",
     "@types/ioredis": "^4.14.9",
     "@types/node": "^10.12.18",
+    "@types/nodemailer": "^6.4.0",
     "@types/nodemon": "^1.19.0",
+    "@types/uuid": "^7.0.3",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
     "eslint": "^6.8.0",

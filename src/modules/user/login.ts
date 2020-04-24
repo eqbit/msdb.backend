@@ -24,6 +24,10 @@ export class LoginResolver {
       return null;
     }
     
+    if (!user.emailConfirmed) {
+      throw new Error('You must confirm your email before you can log in');
+    }
+    
     ctx.req.session!.userId = user.id;
     
     return user;

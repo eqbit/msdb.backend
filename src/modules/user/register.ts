@@ -9,6 +9,7 @@ import {
 import * as bcrypt from 'bcryptjs';
 import { User } from '../../entity';
 import { isAuth } from '../middleware/isAuth';
+import { sendEmail, confirmationUrl } from '../utils';
 
 @Resolver(User)
 export class RegisterResolver {
@@ -32,11 +33,15 @@ export class RegisterResolver {
   ): Promise<User> {
     const hashedPassword = await bcrypt.hash(password, 12);
     
-    return User.create({
+    const user = await User.create({
       firstName,
       lastName,
       email,
       password: hashedPassword
     }).save();
+    
+    await sendEmail(email, await confirmationUrl(user.id));
+    
+    return user;
   }
 }

@@ -11,7 +11,8 @@ import {
   RegisterResolver,
   LoginResolver,
   LoggedResolver,
-  LogoutResolver
+  LogoutResolver,
+  ConfirmUserResolver
 } from './modules';
 import { redis } from './redis';
 
@@ -23,7 +24,8 @@ const main = async () => {
       LoggedResolver,
       LogoutResolver,
       RegisterResolver,
-      LoginResolver
+      LoginResolver,
+      ConfirmUserResolver
     ],
     authChecker: ({ context: { req } }) => !!req.session.userId
   });
