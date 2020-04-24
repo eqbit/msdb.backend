@@ -6,27 +6,13 @@ import { createConnection } from 'typeorm';
 import * as session from 'express-session';
 import * as connectRedis from 'connect-redis';
 import * as cors from 'cors';
-
-import {
-  RegisterResolver,
-  LoginResolver,
-  LoggedResolver,
-  LogoutResolver,
-  ConfirmUserResolver
-} from './modules';
 import { redis } from './redis';
 
 const main = async () => {
   await createConnection();
   
   const schema = await buildSchema({
-    resolvers: [
-      LoggedResolver,
-      LogoutResolver,
-      RegisterResolver,
-      LoginResolver,
-      ConfirmUserResolver
-    ],
+    resolvers: [ `${__dirname}/modules/**.*ts` ],
     authChecker: ({ context: { req } }) => !!req.session.userId
   });
   
