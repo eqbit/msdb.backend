@@ -1,4 +1,4 @@
-import * as nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';
 
 export async function sendEmail(email: string, url: string) {
   const account = await nodemailer.createTestAccount();

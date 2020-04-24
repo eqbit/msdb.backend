@@ -6,6 +6,7 @@
   "dependencies": {
     "apollo-server-express": "^2.3.1",
     "bcryptjs": "^2.4.3",
+    "class-validator": "^0.12.2",
     "connect-redis": "^4.0.4",
     "cors": "^2.8.5",
     "express": "^4.16.4",
@@ -37,12 +38,12 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-typescript": "^0.14.0",
-    "nodemon": "^1.18.9",
+    "ts-node-dev": "^1.0.0-pre.44",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
   },
   "scripts": {
-    "start": "nodemon --exec ts-node src/index.ts",
+    "start": "ts-node-dev --respawn --no-notify src/index.ts",
     "lint": "eslint './{src}/**/*' --ext .ts"
   }
 }

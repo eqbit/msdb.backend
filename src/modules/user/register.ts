@@ -6,7 +6,7 @@ import {
   Resolver,
   Root, UseMiddleware
 } from 'type-graphql';
-import * as bcrypt from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import { User } from '../../entity';
 import { isAuth } from '../middleware/isAuth';
 import { sendEmail, confirmationUrl } from '../utils';
