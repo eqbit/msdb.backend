@@ -29,7 +29,8 @@ module.exports = {
     'class-methods-use-this': 'off',
     'object-curly-newline': 'off',
     'import/extensions': 'off',
-    'implicit-arrow-linebreak': 'off'
+    'implicit-arrow-linebreak': 'off',
+    'padded-blocks': 'off'
   },
   settings: {
     'import/resolver': {
