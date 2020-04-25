@@ -44,6 +44,6 @@
   },
   "scripts": {
     "start": "ts-node-dev --respawn --no-notify src/index.ts",
-    "lint": "eslint './{src}/**/*' --ext .ts"
+    "lint": "eslint './src/**/*' --ext .ts"
   }
 }

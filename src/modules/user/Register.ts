@@ -7,9 +7,9 @@ import {
 } from 'type-graphql';
 import bcrypt from 'bcryptjs';
 import { User } from '../../entity';
-import { isAuth } from '../middleware/isAuth';
+import { isAuth } from '../middleware';
 import { sendEmail, confirmationUrl } from '../utils';
-import { RegisterInput } from './register/registerInput';
+import { RegisterInput } from './register/RegisterInput';
 
 @Resolver()
 export class RegisterResolver {

@@ -1,3 +1,2 @@
-export * from './confirmationUrl';
-export * from './sendEmail';
-export * from './restorePasswordUrl';
+export * from './SendEmail';
+export * from './url';

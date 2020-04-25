@@ -1,6 +1,6 @@
 import { Arg, Mutation, Resolver } from 'type-graphql';
 import { User } from '../../entity';
-import { redis } from '../../redis';
+import { redis } from '../../Redis';
 
 @Resolver(User)
 export class ConfirmEmailResolver {

@@ -9,7 +9,7 @@ export class RestorePasswordResolver {
     const user = await User.findOne({ where: { email } });
     
     if (!user) {
-      throw new Error(`User with email ${email} not found`);
+      return false;
     }
     
     await sendEmail(email, await restorePasswordUrl(user.id));

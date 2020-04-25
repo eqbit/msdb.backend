@@ -6,7 +6,7 @@ import { createConnection } from 'typeorm';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
 import cors from 'cors';
-import { redis } from './redis';
+import { redis } from './Redis';
 
 const main = async () => {
   await createConnection();
