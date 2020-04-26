@@ -14,11 +14,9 @@ afterAll(async () => {
   await conn.close();
 });
 
-const registerMutation = `
-mutation Register($data: RegisterInput!) {
-  register(
-    data: $data
-  ) {
+const loggedQuery = `
+{
+  logged {
     id
     firstName
     lastName
@@ -29,32 +27,31 @@ mutation Register($data: RegisterInput!) {
 `;
 
 describe('Register', () => {
-  it('create user', async () => {
-    const user = {
+  it('logged user', async () => {
+    
+    const user = await User.create({
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       email: faker.internet.email(),
       password: faker.internet.password()
-    };
+    }).save();
     
     const response = await gCall({
-      source: registerMutation,
-      variableValues: {
-        data: user
-      }
+      source: loggedQuery,
+      userId: user.id
     });
+  
+    expect(response.data).toBeDefined();
     
     expect(response).toMatchObject({
       data: {
-        register: {
+        logged: {
+          id: `${user.id}`,
           firstName: user.firstName,
           lastName: user.lastName,
           email: user.email
         }
       }
-    });
-    
-    const dbUser = await User.findOne({ where: { email: user.email } });
-    expect(dbUser).toBeDefined();
+    })
   });
 });

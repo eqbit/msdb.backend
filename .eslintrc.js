@@ -2,9 +2,11 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true
   },
   extends: [
     'airbnb-base',
+    'plugin:jest/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -17,7 +19,8 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    'typescript'
+    'typescript',
+    'jest'
   ],
   rules: {
     'typescript/no-unused-vars': 'warn',

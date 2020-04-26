@@ -6,6 +6,7 @@ interface Options {
   variableValues?: undefined | {
     [key: string]: any;
   };
+  userId?: number;
 }
 
 let schema: GraphQLSchema;
@@ -13,7 +14,8 @@ let schema: GraphQLSchema;
 export const gCall = async (
   {
     source,
-    variableValues
+    variableValues,
+    userId
   }: Options) => {
   
   if (!schema) {
@@ -24,7 +26,17 @@ export const gCall = async (
     {
       schema,
       source,
-      variableValues
+      variableValues,
+      contextValue: {
+        req: {
+          session: {
+            userId
+          }
+        },
+        res: {
+          clearCookie: jest.fn()
+        }
+      }
     }
   );
 };
