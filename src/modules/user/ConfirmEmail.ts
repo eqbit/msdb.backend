@@ -18,7 +18,7 @@ export class ConfirmEmailResolver {
       { emailConfirmed: true }
     );
     
-    await redis.del(token);
+    await redis.del(prefixes.confirmEmail + token);
     
     return true;
   }
