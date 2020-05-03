@@ -38,7 +38,7 @@ const main = async () => {
         client: redis,
       }),
       name: 'qid',
-      secret: 'dasdasd asdasd sadsad',
+      secret: 'hhb2j3n4lk#km5$kn3mn$;;kn?lmkd?',
       resave: false,
       saveUninitialized: false,
       cookie: {
@@ -49,7 +49,7 @@ const main = async () => {
     })
   );
   
-  apolloServer.applyMiddleware({ app });
+  apolloServer.applyMiddleware({ app, cors: false });
   
   app.listen(4000, () => {
     console.log('server listening http://localhost:4000/graphql');
