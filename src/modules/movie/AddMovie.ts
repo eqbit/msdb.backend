@@ -51,6 +51,8 @@ export class AddMovieResolver {
         } else {
           localName = `${name} ${year}`;
         }
+      } else {
+        throw new Error(`Movie '${name}' already exists in the database`);
       }
     }
     
