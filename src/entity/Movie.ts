@@ -33,6 +33,6 @@ export class Movie extends BaseEntity {
   year: number;
   
   @Field()
-  @Column('text', { unique: true })
+  @Column('text')
   tmdbId: string;
 }
