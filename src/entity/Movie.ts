@@ -9,7 +9,7 @@ export class Movie extends BaseEntity {
   id: number;
   
   @Field()
-  @Column()
+  @Column('text', { unique: true })
   name: string;
   
   @Field()

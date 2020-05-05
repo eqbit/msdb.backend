@@ -1,12 +1,10 @@
 import { Length, Min } from 'class-validator';
 import { Field, InputType } from 'type-graphql';
-import { IsMovieAlreadyExist } from './IsMovieExist';
 
 @InputType()
 export class AddMovieInput {
   @Field()
   @Length(1, 50)
-  @IsMovieAlreadyExist({ message: 'Movie already exists in our database' })
   name: string;
   
   @Field()

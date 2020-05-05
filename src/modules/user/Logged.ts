@@ -1,5 +1,4 @@
 import { Query, Resolver, Ctx } from 'type-graphql';
-
 import { User } from '../../entity';
 import { Context } from '../../types';
 
