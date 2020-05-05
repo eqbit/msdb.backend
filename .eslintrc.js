@@ -33,7 +33,8 @@ module.exports = {
     'object-curly-newline': 'off',
     'import/extensions': 'off',
     'implicit-arrow-linebreak': 'off',
-    'padded-blocks': 'off'
+    'padded-blocks': 'off',
+    'camelcase': 'off'
   },
   settings: {
     'import/resolver': {
