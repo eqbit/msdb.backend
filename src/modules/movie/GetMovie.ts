@@ -7,4 +7,9 @@ export class MovieResolver {
   async getMovie(@Arg('name') name: string): Promise<Movie | null> {
     return await Movie.findOne({ where: { name } }) || null;
   }
+  
+  @Query(() => [Movie], { nullable: true })
+  async getMovies() {
+    return Movie.find();
+  }
 }

@@ -35,12 +35,16 @@ export class AddMovieResolver {
     
     if (existedMovie) {
       if (year) {
+        if (existedMovie.year === year) {
+          throw new Error(`Movie '${name}' released in ${year} already exists in the database`);
+        }
+        
         const existedMovieWithYear = await Movie.findOne({
           where: { name: `${name} ${year}` }
         });
         
         if (existedMovieWithYear) {
-          throw new Error(`Movie '${name}' already exists in the database`);
+          throw new Error(`Movie '${name}' released in ${year} already exists in the database`);
         } else {
           localName = `${name} ${year}`;
         }
