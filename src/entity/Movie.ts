@@ -33,6 +33,18 @@ export class Movie extends BaseEntity {
   year: number;
   
   @Field()
+  @Column()
+  popularity: number;
+  
+  @Field()
+  @Column()
+  poster: string;
+  
+  @Field()
+  @Column()
+  trailer: string;
+  
+  @Field()
   @Column('text')
   tmdbId: string;
 }

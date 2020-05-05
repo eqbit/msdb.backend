@@ -27,6 +27,17 @@ export class AddMovieInput {
   @Min(1800)
   year?: number;
   
+  @Field({ nullable: true, defaultValue: 0 })
+  popularity?: number;
+  
+  @Field({ nullable: true, defaultValue: '' })
+  @Length(0, 200)
+  poster?: string;
+  
+  @Field({ nullable: true, defaultValue: '' })
+  @Length(0, 50)
+  trailer?: string;
+  
   @Field({ nullable: true, defaultValue: '' })
   tmdbId?: string;
 }

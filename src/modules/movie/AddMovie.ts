@@ -26,7 +26,10 @@ export class AddMovieResolver {
       writtenBy,
       tmdbId,
       year,
-      description
+      description,
+      popularity,
+      poster,
+      trailer
     }: AddMovieInput
   ): Promise<Movie | never> {
     const existedMovie = await Movie.findOne({ where: { name } });
@@ -58,7 +61,10 @@ export class AddMovieResolver {
       writtenBy,
       tmdbId,
       year,
-      description
+      description,
+      popularity,
+      poster,
+      trailer
     }).save();
   }
 }
