@@ -6,7 +6,7 @@ import session from 'express-session';
 import connectRedis from 'connect-redis';
 import cors from 'cors';
 import { redis } from './Redis';
-import { createSchema } from './utils/createSchema';
+import { createSchema } from './utils';
 
 const main = async () => {
   await createConnection();

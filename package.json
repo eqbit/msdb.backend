@@ -23,9 +23,11 @@
     "request-promise": "^4.2.5",
     "type-graphql": "^0.16.0",
     "typeorm": "^0.2.24",
-    "uuid": "^7.0.3"
+    "uuid": "^7.0.3",
+    "line-reader": "^0.4.0"
   },
   "devDependencies": {
+    "@types/line-reader": "0.0.28",
     "@types/axios": "^0.14.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/connect-redis": "0.0.13",

@@ -35,7 +35,8 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     'padded-blocks': 'off',
     'camelcase': 'off',
-    'no-unused-vars': 'off'
+    'no-unused-vars': 'off',
+    'consistent-return': 'off'
   },
   settings: {
     'import/resolver': {
