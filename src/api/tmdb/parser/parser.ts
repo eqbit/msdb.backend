@@ -9,7 +9,6 @@ interface Movie {
   video: boolean;
 }
 
-
 export const parser = () => {
   const MIN_POPULARITY = 15;
   const movies: Movie[] = [];
@@ -26,7 +25,7 @@ export const parser = () => {
     
     if (last) {
       fs.writeFile(
-        `${__dirname}/../output/output.json`,
+        `${__dirname}/output/output.json`,
         JSON.stringify(movies, null, ' '),
         (err) => {
           console.error(err);
@@ -44,5 +43,5 @@ export const parser = () => {
     console.error(error);
   };
   
-  lineReader.eachLine(`${__dirname}/../source/source.json`, parserLogic as any, errorHandler as any);
+  lineReader.eachLine(`${__dirname}/source/source.json`, parserLogic as any, errorHandler as any);
 };
