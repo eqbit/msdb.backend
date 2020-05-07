@@ -2,3 +2,4 @@ node_modules
 .idea
 src/config.ts
 src/api/tmdb/parser/source/*
+src/api/tmdb/parser/output/*
