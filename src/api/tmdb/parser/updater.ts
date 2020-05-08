@@ -1,6 +1,6 @@
 import { getDetailedInfo } from '../detailedInfo';
 import { ShortMovie } from '../../../types/TMDB';
-import { sleep } from '../../../utils';
+import { sleep, testFor } from '../../../utils';
 import { AddMovieResolver } from '../../../modules/movie';
 
 const movies: ShortMovie[] = require('./output/output.json');
@@ -10,21 +10,23 @@ const Resolver = new AddMovieResolver();
 const update = async (id: number) => {
   try {
     const result = await getDetailedInfo(id);
-  
-    await Resolver.addMovie({
-      name: result.title,
-      genre: result.genres[0].name,
-      directedBy: '',
-      writtenBy: '',
-      description: result.overview,
-      customDescription: '',
-      year: new Date(result.release_date).getFullYear(),
-      updated: `${new Date()}`,
-      trailer: '',
-      poster: `http://image.tmdb.org/t/p/w300/${result.poster_path}`,
-      popularity: Math.floor(result.popularity),
-      tmdbId: `${result.id}`
-    });
+    
+    if (testFor('onlyRussianLetters', result.title)) {
+      await Resolver.addMovie({
+        name: result.title,
+        genre: result.genres.map((genre) => genre.name).join(','),
+        directedBy: '',
+        writtenBy: '',
+        description: result.overview,
+        customDescription: '',
+        year: new Date(result.release_date).getFullYear(),
+        updated: `${new Date()}`,
+        trailer: '',
+        poster: `http://image.tmdb.org/t/p/w300${result.poster_path}`,
+        popularity: Math.floor(result.popularity),
+        tmdbId: `${result.id}`
+      });
+    }
   } catch (e) {
     console.error(e.message);
   }
