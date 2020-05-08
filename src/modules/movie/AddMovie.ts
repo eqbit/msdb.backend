@@ -1,22 +1,13 @@
 import {
   Arg,
   Mutation,
-  Query,
-  Resolver,
-  UseMiddleware
+  Resolver
 } from 'type-graphql';
 import { Movie } from '../../entity';
-import { isAuth } from '../middleware';
 import { AddMovieInput } from './addMovie/AddMovieInput';
 
 @Resolver()
 export class AddMovieResolver {
-  @UseMiddleware(isAuth)
-  @Query(() => String)
-  async hello() {
-    return 'Hello World!';
-  }
-  
   @Mutation(() => Movie)
   async addMovie(
     @Arg('data') {
@@ -25,6 +16,8 @@ export class AddMovieResolver {
       directedBy,
       writtenBy,
       tmdbId,
+      updated,
+      customDescription,
       year,
       description,
       popularity,
@@ -62,6 +55,8 @@ export class AddMovieResolver {
       directedBy,
       writtenBy,
       tmdbId,
+      updated,
+      customDescription,
       year,
       description,
       popularity,

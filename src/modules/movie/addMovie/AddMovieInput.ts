@@ -23,6 +23,10 @@ export class AddMovieInput {
   @Length(0, 2000)
   description?: string;
   
+  @Field({ nullable: true, defaultValue: '' })
+  @Length(0, 3000)
+  customDescription?: string;
+  
   @Field({ nullable: true, defaultValue: 1800 })
   @Min(1800)
   year?: number;
@@ -40,4 +44,7 @@ export class AddMovieInput {
   
   @Field({ nullable: true, defaultValue: '' })
   tmdbId?: string;
+  
+  @Field({ nullable: true, defaultValue: '' })
+  updated?: string;
 }

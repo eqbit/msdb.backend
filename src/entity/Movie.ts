@@ -30,6 +30,10 @@ export class Movie extends BaseEntity {
   
   @Field()
   @Column()
+  customDescription: string;
+  
+  @Field()
+  @Column()
   year: number;
   
   @Field()
@@ -47,4 +51,8 @@ export class Movie extends BaseEntity {
   @Field()
   @Column('text')
   tmdbId: string;
+  
+  @Field()
+  @Column('text')
+  updated: string;
 }
