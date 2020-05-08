@@ -36,7 +36,8 @@ module.exports = {
     'padded-blocks': 'off',
     'camelcase': 'off',
     'no-unused-vars': 'off',
-    'consistent-return': 'off'
+    'consistent-return': 'off',
+    'no-plusplus': 'off'
   },
   settings: {
     'import/resolver': {

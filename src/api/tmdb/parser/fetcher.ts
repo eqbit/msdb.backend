@@ -9,7 +9,7 @@ export const fetcher = async () => {
   const day = date.getDay() > 9 ? date.getDay() : `0${date.getDay()}`;
   const month = date.getMonth() > 9 ? date.getMonth() : `0${date.getMonth()}`;
   
-  const dateString = `${day}_${month}_${date.getFullYear()}`;
+  const dateString = `${month}_${day}_${date.getFullYear()}`;
   const url = `http://files.tmdb.org/p/exports/movie_ids_${dateString}.json.gz`;
   
   const res = await request({

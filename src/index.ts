@@ -7,12 +7,13 @@ import connectRedis from 'connect-redis';
 import cors from 'cors';
 import { redis } from './Redis';
 import { createSchema } from './utils';
+import { updater } from './api/tmdb/parser';
 
 const main = async () => {
   await createConnection();
-  
+
   const schema = await createSchema();
-  
+
   const apolloServer = new ApolloServer({
     schema,
     context: ({ req, res }: any) => ({ req, res }),
@@ -22,16 +23,16 @@ const main = async () => {
       }
     }
   });
-  
+
   const app = Express();
-  
+
   app.use(cors({
     credentials: true,
     origin: 'http://localhost:3000'
   }));
-  
+
   const RedisStore = connectRedis(session);
-  
+
   app.use(
     session({
       store: new RedisStore({
@@ -48,12 +49,13 @@ const main = async () => {
       }
     })
   );
-  
+
   apolloServer.applyMiddleware({ app, cors: false });
-  
+
   app.listen(4000, () => {
     console.log('server listening http://localhost:4000/graphql');
   });
 };
 
 main();
+updater();

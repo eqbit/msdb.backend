@@ -59,7 +59,7 @@
     "typescript": "^3.2.2"
   },
   "scripts": {
-    "start": "ts-node-dev --respawn --no-notify src/index.ts",
+    "start": "ts-node-dev --respawn --no-notify --ignore-watch output.json src/index.ts",
     "lint": "eslint './src/**/*' --ext .ts",
     "db:setup": "ts-node ./src/test-utils/setup.ts",
     "test": "npm run db:setup && jest --runInBand --detectOpenHandles"
