@@ -24,9 +24,9 @@ export const addMovieService = async (tmdbId: number) => {
         tmdbId: `${result.id}`
       });
       
-      return response.name ? responseMessage('success') : response;
+      return response.name ? responseMessage(`${response.name} added to database successfully`) : response;
     }
-    return responseMessage('No russian translation');
+    return responseMessage(`No russian translation in movie '${result.title}'`);
   } catch (e) {
     return responseMessage(e.message);
   }
