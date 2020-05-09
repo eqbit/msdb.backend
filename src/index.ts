@@ -57,8 +57,8 @@ const main = async () => {
     console.log('server listening http://localhost:4000/graphql');
   });
   
-  app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
   
   appRouter(app);
 };
