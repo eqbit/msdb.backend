@@ -7,6 +7,7 @@
     "apollo-server-express": "^2.3.1",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "class-validator": "^0.12.2",
     "connect-redis": "^4.0.4",
     "cors": "^2.8.5",
@@ -16,6 +17,7 @@
     "graphql-upload": "^10.0.0",
     "gunzip-file": "^0.1.1",
     "ioredis": "^4.16.3",
+    "line-reader": "^0.4.0",
     "nodemailer": "^6.4.6",
     "pg": "^8.0.2",
     "reflect-metadata": "^0.1.12",
@@ -23,8 +25,7 @@
     "request-promise": "^4.2.5",
     "type-graphql": "^0.16.0",
     "typeorm": "^0.2.24",
-    "uuid": "^7.0.3",
-    "line-reader": "^0.4.0"
+    "uuid": "^7.0.3"
   },
   "devDependencies": {
     "@types/line-reader": "0.0.28",
