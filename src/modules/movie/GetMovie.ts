@@ -4,8 +4,8 @@ import { Movie } from '../../entity';
 @Resolver()
 export class MovieResolver {
   @Query(() => Movie, { nullable: true })
-  async getMovie(@Arg('name') name: string): Promise<Movie | null> {
-    return await Movie.findOne({ where: { name } }) || null;
+  async getMovie(@Arg('id') id: number): Promise<Movie | null> {
+    return await Movie.findOne(id) || null;
   }
   
   @Query(() => [ Movie ], { nullable: true })
