@@ -6,6 +6,7 @@
   "username": "postgres",
   "password": "postgres",
   "database": "msdb",
+  "dropSchema": false,
   "synchronize": true,
   "logging": true,
   "entities": ["src/entity/*.*"]
