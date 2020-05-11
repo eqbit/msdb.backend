@@ -33,7 +33,13 @@ export class MovieResolver {
   async getSimilarMovies(
     @Arg('id') id: number
   ) {
-    const ids = await similarMovieIds(id);
+    const movie = await Movie.findOne(id);
+    
+    if (!movie) {
+      throw new Error('Movie not found');
+    }
+    
+    const ids = await similarMovieIds(+movie.tmdbId);
     
     return Movie.find({
       where: ids.map((tmdbId) => ({ tmdbId }))
