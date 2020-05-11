@@ -49,7 +49,7 @@ export class Movie extends BaseEntity {
   trailer: string;
   
   @Field()
-  @Column('text')
+  @Column('text', { unique: true })
   tmdbId: string;
   
   @Field()
