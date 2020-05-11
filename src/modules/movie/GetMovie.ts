@@ -1,5 +1,6 @@
 import { Arg, Int, Query, Resolver } from 'type-graphql';
 import { Movie } from '../../entity';
+import { similarMovieIds } from '../../api/tmdb';
 
 @Resolver()
 export class MovieResolver {
@@ -24,7 +25,18 @@ export class MovieResolver {
   
   @Query(() => Int, { nullable: true })
   async countMovies() {
-    const [, count] = await Movie.findAndCount();
+    const [ , count ] = await Movie.findAndCount();
     return count;
+  }
+  
+  @Query(() => [ Movie ], { nullable: true })
+  async getSimilarMovies(
+    @Arg('id') id: number
+  ) {
+    const ids = await similarMovieIds(id);
+    
+    return Movie.find({
+      where: ids.map((tmdbId) => ({ tmdbId }))
+    });
   }
 }
