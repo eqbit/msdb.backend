@@ -40,4 +40,31 @@ export interface DetailedInfo {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  keywords: {
+    keywords: {
+      id: number;
+      name: string;
+    }[];
+  };
+  credits: {
+    cast: {
+      cast_id: number;
+      character: string;
+      credit_id: string;
+      gender: 0 | 1 | 2;
+      id: number;
+      name: string;
+      order: number
+      profile_path: string | null;
+    }[];
+    crew: {
+      credit_id: string;
+      department: string;
+      gender: 0 | 1 | 2;
+      id: number;
+      job: string;
+      name: string;
+      profile_path: string | null;
+    }[];
+  }
 }
