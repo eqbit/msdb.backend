@@ -23,6 +23,16 @@ export class MovieResolver {
     });
   }
   
+  @Query(() => Movie, { nullable: true })
+  async getRandomMovie() {
+    const moviesNumber = await this.countMovies();
+    const movies = await Movie.find({
+      skip: Math.floor(Math.random() * moviesNumber),
+      take: 1
+    });
+    return movies[0] || null;
+  }
+  
   @Query(() => Int, { nullable: true })
   async countMovies() {
     const [ , count ] = await Movie.findAndCount();
